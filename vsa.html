@@ -1,0 +1,266 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VSA Infotech — Company</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: #0f172a;
+      --bg2: #071033;
+      --card: rgba(255,255,255,0.06);
+      --accent: #6ee7b7;
+      --accent2: #60a5fa;
+      --glass: rgba(255,255,255,0.04);
+      --soft: rgba(255,255,255,0.08);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.08), transparent),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(110,231,183,0.04), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 24px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      gap:24px;
+    }/* Page container */
+.container{
+  width:100%;
+  max-width:1100px;
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:24px;
+  align-items:start;
+}
+
+/* Header */
+header.site-header{
+  grid-column:1 / -1;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+}
+.logo{
+  display:flex;align-items:center;gap:12px;
+}
+.logo .mark{
+  width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:grid;place-items:center;font-weight:800;color:#05204a;box-shadow:0 6px 18px rgba(0,0,0,0.4);
+  transform:rotate(-12deg);
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float{0%{transform:translateY(0) rotate(-12deg)}50%{transform:translateY(-8px) rotate(-12deg)}100%{transform:translateY(0) rotate(-12deg)}}
+.logo h1{font-size:1.05rem;margin:0}
+.logo p{margin:0;font-size:0.78rem;color:rgba(230,238,248,0.7)}
+
+/* Hero card */
+.hero{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:14px;padding:22px;border:1px solid var(--glass);backdrop-filter: blur(6px);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+.hero h2{margin:0 0 6px 0;font-size:1.25rem}
+.hero p{margin:0 0 14px 0;color:rgba(230,238,248,0.75)}
+.cta-row{display:flex;gap:10px}
+.btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:600}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#04203a}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:rgba(230,238,248,0.9)}
+
+/* Animated features */
+.features{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:12px;margin-top:14px}
+.feature{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:12px;border-radius:10px;border:1px solid var(--soft);display:flex;gap:10px;align-items:center}
+.dot{width:46px;height:46px;border-radius:8px;display:grid;place-items:center;color:#05204a;font-weight:700}
+
+/* Right column */
+.side-panel{position:sticky;top:32px}
+.card{background:var(--card);padding:18px;border-radius:12px;border:1px solid var(--glass)}
+
+/* Team / developer card */
+.team-card{display:flex;gap:14px;align-items:center}
+.avatar{width:86px;height:86px;border-radius:14px;background:linear-gradient(135deg,var(--accent2),var(--accent));display:grid;place-items:center;font-weight:700;color:#05204a;font-size:1.05rem;box-shadow:0 10px 30px rgba(2,6,23,0.5)}
+.member-info h3{margin:0;font-size:1rem}
+.member-info p{margin:4px 0 0 0;font-size:0.84rem;color:rgba(230,238,248,0.75)}
+
+/* Flip card for details */
+.flip-wrap{perspective:1200px}
+.flip{width:100%;height:140px;position:relative;transform-style:preserve-3d;transition:transform 0.7s cubic-bezier(.2,.9,.3,1)}
+.flip:hover{transform:rotateY(12deg) translateY(-6px)}
+.flip .face{position:absolute;inset:0;border-radius:10px;padding:14px;backface-visibility:hidden}
+.front{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid var(--soft)}
+.back{transform:rotateY(180deg);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+
+/* Skills bars */
+.skill{margin-bottom:10px}
+.skill .bar{height:10px;background:rgba(255,255,255,0.04);border-radius:8px;overflow:hidden}
+.skill .fill{height:100%;width:0%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 1s ease-in-out}
+.skill[data-pct="90"] .fill{width:90%}
+.skill[data-pct="75"] .fill{width:75%}
+.skill[data-pct="60"] .fill{width:60%}
+
+/* Footer */
+footer{grid-column:1/-1;margin-top:16px;color:rgba(230,238,248,0.6);font-size:0.85rem;text-align:center}
+
+/* Responsive */
+@media (max-width:980px){
+  .container{grid-template-columns:1fr;}
+  .side-panel{position:relative;top:auto}
+}
+
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header class="site-header">
+      <div class="logo" aria-hidden>
+        <div class="mark">V</div>
+        <div>
+          <h1>VSA Infotech</h1>
+          <p>Digital solutions • UI/UX • Web & Mobile</p>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <button class="btn btn-ghost">Services</button>
+        <button class="btn btn-ghost">Projects</button>
+        <button class="btn btn-ghost">Contact</button>
+      </nav>
+    </header><section class="hero card">
+  <h2>We build modern, animated web experiences</h2>
+  <p>VSA Infotech — simple, fast and beautiful frontends backed by smart engineering. Showcase your product, team, and services in a small pixel-perfect page.</p>
+  <div class="cta-row">
+    <button class="btn btn-primary">Get a Quote</button>
+    <button class="btn btn-ghost">View Portfolio</button>
+  </div>
+
+  <div class="features" aria-hidden>
+    <div class="feature">
+      <div class="dot" style="background:linear-gradient(135deg,#9be7ff,#60a5fa)">A</div>
+      <div>
+        <strong>Animated UI</strong>
+        <div style="font-size:0.82rem;color:rgba(230,238,248,0.7)">Micro-interactions, smooth transitions</div>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="dot" style="background:linear-gradient(135deg,#b6f7d3,#6ee7b7)">C</div>
+      <div>
+        <strong>Clean Code</strong>
+        <div style="font-size:0.82rem;color:rgba(230,238,248,0.7)">Readable, accessible, documented</div>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="dot" style="background:linear-gradient(135deg,#ffd6a5,#ffb4a2)">R</div>
+      <div>
+        <strong>Responsive</strong>
+        <div style="font-size:0.82rem;color:rgba(230,238,248,0.7)">Looks great on mobile and desktop</div>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="dot" style="background:linear-gradient(135deg,#d9b3ff,#a78bfa)">S</div>
+      <div>
+        <strong>Support</strong>
+        <div style="font-size:0.82rem;color:rgba(230,238,248,0.7)">Quick turnaround and maintenance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<aside class="side-panel">
+  <div class="card" style="margin-bottom:16px">
+    <h3 style="margin:0 0 10px 0">About VSA Infotech</h3>
+    <p style="margin:0 0 12px 0;color:rgba(230,238,248,0.78)">A small team focused on web apps, design systems and performance. We care about pixels and users.</p>
+    <div class="flip-wrap" title="hover to interact">
+      <div class="flip">
+        <div class="face front">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="avatar">VU</div>
+            <div>
+              <div style="font-weight:700">Viraj Umaretiya</div>
+              <div style="font-size:0.84rem;color:rgba(230,238,248,0.75)">Founder & Developer</div>
+            </div>
+          </div>
+          <div style="margin-top:10px;font-size:0.85rem;color:rgba(230,238,248,0.75)">Building frontend systems, animations and small libraries. Loves clean code and chai.</div>
+        </div>
+        <div class="face back">
+          <div style="display:flex;flex-direction:column;gap:8px;height:100%">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <strong>Contact</strong>
+              <span style="font-size:0.85rem;color:rgba(230,238,248,0.7)">viraj@example.com</span>
+            </div>
+            <div class="skill" data-pct="90">
+              <div style="display:flex;justify-content:space-between;font-size:0.82rem"><span>HTML/CSS</span><span>90%</span></div>
+              <div class="bar"><div class="fill"></div></div>
+            </div>
+            <div class="skill" data-pct="75">
+              <div style="display:flex;justify-content:space-between;font-size:0.82rem"><span>JavaScript</span><span>75%</span></div>
+              <div class="bar"><div class="fill"></div></div>
+            </div>
+            <div class="skill" data-pct="60">
+              <div style="display:flex;justify-content:space-between;font-size:0.82rem"><span>Design</span><span>60%</span></div>
+              <div class="bar"><div class="fill"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4 style="margin:0 0 10px 0">Quick Contact</h4>
+    <p style="margin:0 0 12px 0;color:rgba(230,238,248,0.75)">Interested in a project? Send a message and we'll reply within 1–2 business days.</p>
+    <form onsubmit="event.preventDefault();alert('Message sent — demo only');" aria-label="Contact form">
+      <input required placeholder="Your name" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit;margin-bottom:8px" />
+      <input required placeholder="Email" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit;margin-bottom:8px" />
+      <textarea required placeholder="Message" rows="3" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit;margin-bottom:8px"></textarea>
+      <button class="btn btn-primary" type="submit">Send</button>
+    </form>
+  </div>
+</aside>
+
+<section class="hero card" style="min-height:160px">
+  <h3 style="margin-top:0">Recent Projects</h3>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px">
+    <div style="padding:12px;border-radius:10px;border:1px solid var(--soft);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)">
+      <strong>Pulse CRM</strong>
+      <div style="font-size:0.84rem;color:rgba(230,238,248,0.7)">Dashboard & analytics with animated widgets</div>
+    </div>
+    <div style="padding:12px;border-radius:10px;border:1px solid var(--soft);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)">
+      <strong>Shoply</strong>
+      <div style="font-size:0.84rem;color:rgba(230,238,248,0.7)">E‑commerce UI with fast interactions</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © VSA Infotech — Built with care • Developer: Viraj Umaretiya
+</footer>
+
+  </div>  <script>
+    // small progressive enhancement: animate skill bars when visible
+    (function(){
+      try{
+        const skills = document.querySelectorAll('.skill');
+        const obs = new IntersectionObserver(entries=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){
+              const pct = e.target.getAttribute('data-pct')||'50';
+              const fill = e.target.querySelector('.fill');
+              setTimeout(()=>fill.style.width = pct+'%',100);
+              obs.unobserve(e.target);
+            }
+          })
+        },{threshold:0.25});
+        skills.forEach(s=>obs.observe(s));
+      }catch(e){/* no-op */}
+    })();
+  </script></body>
+</html>
