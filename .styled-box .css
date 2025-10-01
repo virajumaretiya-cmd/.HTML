@@ -1,0 +1,10 @@
+.styled-box {
+    margin: 30px;
+    padding: 20px;
+    border: 5px solid darkblue;
+    background-color: #e6f7ff;
+    width: 400px; 
+    font-family: Arial, sans-serif;
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
